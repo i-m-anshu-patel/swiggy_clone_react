@@ -23,7 +23,8 @@ const Restaurant = () => {
         <div className="container my-2">
              <RestaurantFilters setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants} avgRatingFilter={avgRatingFilter} setAvgRatingFilter={setAvgRatingFilter} deliveryTimeFilter={deliveryTimeFilter} setDeliveryTimeFilter={setDeliveryTimeFilter} originalListOfRestaurants={originalListOfRestaurants}/>
             <div className="row gx-5">
-              { listOfRestaurants && (listOfRestaurants.length === 0)? (<h1>Loading...</h1>) : listOfRestaurants.map((restaurant) => 
+              { listOfRestaurants && (listOfRestaurants.length === 0)? (<h1>Loading...</h1>)
+               : listOfRestaurants && listOfRestaurants.map((restaurant) => 
                   (<div key={restaurant.info.id} className="col-md-4">
                   <RestaurantCard key={restaurant.info.id} restaurant={restaurant} /></div>
                   ))}
