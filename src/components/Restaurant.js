@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import RestaurantCard from "./RestaurantCard";
 import RestaurantFilters from "./RestaurantFilters";
+import { SWIGGY_URL } from "../utils/constants";
 
 const Restaurant = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -9,7 +10,7 @@ const Restaurant = () => {
      const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9621948&lng=77.7115841&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(SWIGGY_URL);
         const json = await data.json()
         setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setOriginalListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);

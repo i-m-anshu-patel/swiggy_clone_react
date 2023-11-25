@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RestaurantMenuList from "./RestaurantMenuList";
+import { LOGO_URL } from "../utils/constants";
+
 
 const RestaurantMenu = () => {
     const { resId } = useParams()
-    const [menuList, setMenuList] = useState([]);
     const [menuListWithCategories, setMenuListWithCategories] = useState([]);
     const [menuListWithOutCategories, setMenuListWithOutCategories] = useState([]);
     const [resInfo, setResInfo] = useState([]);
@@ -27,7 +28,7 @@ const RestaurantMenu = () => {
                 <p className="h6">{resInfo.avgRating} ratings</p>
             </div>
 
-            <div style={{ backgroundImage: `url(https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${resInfo.cloudinaryImageId})`, minHeight: "5rem" }}>
+            <div style={{ backgroundImage: `url(${LOGO_URL+resInfo.cloudinaryImageId})`, minHeight: "5rem" }}>
             </div>
             <h6 className="text-center">{resInfo.locality} - {resInfo.areaName}</h6>
             <div className="my-5">
