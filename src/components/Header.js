@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 const Header = () => {
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -22,7 +25,7 @@ const Header = () => {
                 <Link className="nav-link" to="/about">About</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cart">Cart</Link>
+                <Link className="nav-link" to="/cart">Cart ({cartItems.length} items)</Link>
               </li>
             </ul>
           </div>
