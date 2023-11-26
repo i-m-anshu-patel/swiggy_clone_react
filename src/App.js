@@ -6,7 +6,6 @@ import {
   Route,
 } from "react-router-dom";
 import Restaurant from './components/Restaurant';
-import Home from './components/Home';
 import RestaurantMenu from './components/RestaurantMenu';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore';
